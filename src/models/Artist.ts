@@ -1,9 +1,7 @@
-import {Table, Column, AutoIncrement, Model, PrimaryKey} from 'sequelize-typescript'
-import {DataTypes} from "sequelize";
+import {Table, Column, Model} from 'sequelize-typescript'
 
 @Table({tableName: 'Artist', createdAt: false, deletedAt: false, updatedAt: false})
 class Artist extends Model {
-    //@Column({field: 'ArtistId'})
     @Column({
         autoIncrement: true,
         primaryKey: true,

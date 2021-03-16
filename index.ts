@@ -1,31 +1,28 @@
 import express from 'express'
-//import * as cors from 'cors'
-//import * as bodyParser from 'body-parser'
+import bodyParser from "body-parser";
+import { useExpressServer } from "routing-controllers";
 
-const app = express()
+const server = express()
+// Allow to call this.json() from router callbacks
+server.use(bodyParser.json())
+// Allow to ?
+server.use(bodyParser.urlencoded({ extended: true }));
+
 const port = 5000
 
 import { Sequelize } from 'sequelize-typescript'
-import Artist from './src/model/Artist'
+import Artist from './src/models/Artist'
 
 const sequelize: Sequelize = new Sequelize({
     storage: `${__dirname}/chinook.sqlite`,
     dialect: 'sqlite',
-    models: [Artist]
+    models: [`${__dirname}/src/models/*.ts`],
 });
 
-
-
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', function(req, res) {
-    res.send('Hello world');
+useExpressServer(server, {
+    controllers: [`${__dirname}/src/controllers/*.ts`]
 });
 
-app.get('/api/artist/:id', async function(req, res) {
-    let artist: Artist = await Artist.findByPk(req.params.id)
-    res.send(`<h1> ${artist.name}</h1>`);
-});
-
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Example app listening at http://127.0.0.1:${port}`)
 });
