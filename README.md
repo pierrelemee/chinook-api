@@ -7,8 +7,9 @@ A backend project serving a web service API to access [Chinook database data](ht
 ### Setup
 
 ```bash
+# Download latest version of standalone sqlite database
 wget https://github.com/lerocha/chinook-database/raw/master/ChinookDatabase/DataSources/Chinook_Sqlite_AutoIncrementPKs.sqlite -O ./chinook.sqlite
-
+# Install dependencies (including ones required for development)
 yarn install --dev
 ```
 
@@ -55,3 +56,40 @@ export default Artist;
 
 To maintain a high level of OOP definitions, I installed [`routing-controllers`](https://github.com/typestack/routing-controllers),
 inspired by [this brilliant article](https://codebrains.io/express-typescript-routing-controllers/).
+
+Allowing me to create this kind of _controller_ class:
+
+```typescript
+import { JsonController, OnUndefined, Param, Get } from "routing-controllers";
+import Artist from "../models/Artist";
+
+@JsonController()
+export class UserController {
+
+    @Get("/api/artist/:id")
+    @OnUndefined(404)
+    async getOne(@Param("id") id: number) {
+        const artist: Artist = await Artist.findByPk(id);
+        return {
+            id: artist.id,
+            name: artist.name,
+        }
+    }
+}
+```
+
+## Test
+
+I haven't implemented unit tests _so far_. 
+
+While waiting, you can still execute this:
+
+```bash
+curl -s  http://127.0.0.1:5000/api/artist/125
+```
+
+If you [install `pjson`](https://pypi.org/project/pjson/) on your local machine, you can even _prettify_:
+
+```bash
+curl -s  http://127.0.0.1:5000/api/artist/125 | pjson
+```
