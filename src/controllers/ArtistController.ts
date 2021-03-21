@@ -1,5 +1,5 @@
 import { JsonController, OnUndefined, Param, Get } from "routing-controllers";
-import Artist from "../models/Artist";
+import {Artist, Album} from "@models/index";
 
 @JsonController()
 export class UserController {
@@ -7,10 +7,19 @@ export class UserController {
     @Get("/api/artist/:id")
     @OnUndefined(404)
     async getOne(@Param("id") id: number) {
-        const artist: Artist = await Artist.findByPk(id);
+        const artist: Artist = await Artist.findByPk(id, {include: Album});
+        console.log(artist.albums)
         return {
             id: artist.id,
             name: artist.name,
+            /*
+            albums: artist.albums.map(function (album) {
+                return {
+                    id: album.id,
+                    name: album.name,
+                };
+            })
+            */
         }
     }
 

@@ -1,6 +1,9 @@
+//import 'module-alias/register';
 import express from 'express'
 import bodyParser from "body-parser";
 import { useExpressServer } from "routing-controllers";
+import { Album, Artist } from "@models/index"
+
 
 const server = express()
 // Allow to call this.json() from router callbacks
@@ -11,12 +14,11 @@ server.use(bodyParser.urlencoded({ extended: true }));
 const port = 5000
 
 import { Sequelize } from 'sequelize-typescript'
-import Artist from './src/models/Artist'
 
 const sequelize: Sequelize = new Sequelize({
     storage: `${__dirname}/chinook.sqlite`,
     dialect: 'sqlite',
-    models: [`${__dirname}/src/models/*.ts`],
+    models: [ Artist, Album ],
 });
 
 useExpressServer(server, {

@@ -1,12 +1,26 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@models/*": ["./models/*"],
+    },
+    "traceResolution": false,
+    "noEmit": false,
+    "outDir": "./dist/",
     "sourceMap": true,
-    "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "target": "es6", // or a more recent ecmascript version
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  }
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "types": [
+    "node"
+  ]
 }
