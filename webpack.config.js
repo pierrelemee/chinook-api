@@ -1,9 +1,14 @@
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const NodeExternals = require('webpack-node-externals');
 const path = require('path');
-const fs = require('fs')
 
 module.exports = {
     mode: 'development',
     entry: './index.ts',
+    target: 'node',
+    externalsPresets: { node: true }, // in order to ignore built-in modules like path, fs, etc.
+    externals: [ NodeExternals()], // in order to ignore all modules in node_modules folder
     module: {
         rules: [
             {
@@ -13,17 +18,15 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new NodePolyfillPlugin(),
+        new CleanWebpackPlugin(),
+    ],
     resolve: {
         alias: {
             "@models": path.resolve(__dirname, 'src/models')
         },
         extensions: ['.ts', '.tsx', '.js', '.json'],
-        fallback: {
-            "crypto": require.resolve("crypto-browserify"),
-            "http": require.resolve("stream-http"),
-            "fs": false,
-            "zlib": false,
-        },
     },
     output: {
         filename: 'index.js',

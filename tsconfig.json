@@ -1,26 +1,24 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
     "baseUrl": "./src",
     "paths": {
-      "@models/*": ["./models/*"],
+      "*": [
+        "src/*",
+        "node_modules/*",
+      ]
     },
-    "traceResolution": false,
-    "noEmit": false,
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "allowSyntheticDefaultImports": true
+    "emitDecoratorMetadata": true
   },
-  "include": ["./**/*.ts", "./**/*.tsx"],
-  "types": [
-    "node"
+  "exclude": [
+    "node_modules"
   ]
 }

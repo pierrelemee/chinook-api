@@ -1,6 +1,8 @@
 /// <reference path="definitions.d.ts" />
-import {Table, Column, Model, ForeignKey, BelongsTo} from 'sequelize-typescript'
-import { Artist } from "@models/index";
+import { Artist, Track } from ".";
+import {Table, Column, Model, ForeignKey, BelongsTo, HasMany} from 'sequelize-typescript'
+import {} from "./Track";
+
 
 @Table({tableName: 'Album', createdAt: false, deletedAt: false, updatedAt: false})
 export class Album extends Model {
@@ -14,7 +16,13 @@ export class Album extends Model {
     @Column({field: 'Title'})
     public name: String;
 
-    @BelongsTo(() => Artist, 'ArtistId')
+    @ForeignKey(() => Artist)
     @Column({field: 'ArtistId'})
-    artist: Artist
+    public artistId: Number;
+
+    @BelongsTo(() => Artist, 'ArtistId')
+    public artist: Artist
+
+    @HasMany(() => Track)
+    public tracks: Track[]
 }

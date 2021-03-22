@@ -1,5 +1,5 @@
 import {Table, Column, Model, HasMany, ForeignKey, BelongsTo} from 'sequelize-typescript'
-import { Album } from "@models/index";
+import { Album } from ".";
 
 @Table({tableName: 'Artist', createdAt: false, deletedAt: false, updatedAt: false})
 export class Artist extends Model {
