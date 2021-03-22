@@ -93,3 +93,8 @@ If you [install `pjson`](https://pypi.org/project/pjson/) on your local machine,
 ```bash
 curl -s  http://127.0.0.1:5000/api/artist/125 | pjson
 ```
+
+
+## Database schema
+
+![Chinook database schema](https://blog.xojo.com/wp-content/uploads/2016/04/ChinookDatabaseSchema1.1.png)

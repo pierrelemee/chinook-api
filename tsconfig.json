@@ -1,12 +1,24 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "sourceMap": true,
     "module": "commonjs",
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "target": "es6", // or a more recent ecmascript version
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "paths": {
+      "*": [
+        "src/*",
+        "node_modules/*",
+      ]
+    },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

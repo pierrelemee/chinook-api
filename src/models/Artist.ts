@@ -1,7 +1,8 @@
-import {Table, Column, Model} from 'sequelize-typescript'
+import {Table, Column, Model, HasMany, ForeignKey, BelongsTo} from 'sequelize-typescript'
+import { Album } from ".";
 
 @Table({tableName: 'Artist', createdAt: false, deletedAt: false, updatedAt: false})
-class Artist extends Model {
+export class Artist extends Model {
     @Column({
         autoIncrement: true,
         primaryKey: true,
@@ -10,6 +11,7 @@ class Artist extends Model {
     public id: Number;
     @Column({field: 'Name'})
     public name: String;
-}
 
-export default Artist;
+    @HasMany(() => Album)
+    public albums: Album[]
+}
