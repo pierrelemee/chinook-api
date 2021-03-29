@@ -41,7 +41,8 @@
     "path": false
   },
   "scripts": {
-    "dev": "npm-run-all --parallel watch:server watch:build",
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' index.ts",
+    "dev-old": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack --watch",
     "watch:server": "nodemon \"./dist/index.js\" --watch \"./dist\""
   },

@@ -23,5 +23,5 @@ useExpressServer(app, {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://127.0.0.1:${port}`)
+    console.log(`Chinook API running at http://127.0.0.1:${port}`)
 });
