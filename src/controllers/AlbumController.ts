@@ -1,6 +1,6 @@
 //import { Request, Response } from 'express';
 import { JsonController, OnUndefined, Param, Get } from "routing-controllers";
-import { Album, Track } from "../models";
+import { Album, Track } from "models";
 
 @JsonController()
 export class AlbumController {

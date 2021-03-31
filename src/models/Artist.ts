@@ -1,5 +1,5 @@
-import {Table, Column, Model, HasMany, ForeignKey, BelongsTo} from 'sequelize-typescript'
-import { Album } from ".";
+import {Table, Column, Model, HasMany} from 'sequelize-typescript'
+import { Album } from "models";
 
 @Table({tableName: 'Artist', createdAt: false, deletedAt: false, updatedAt: false})
 export class Artist extends Model {
@@ -8,9 +8,9 @@ export class Artist extends Model {
         primaryKey: true,
         field: 'ArtistId'
     })
-    public id: Number;
+    public id: number;
     @Column({field: 'Name'})
-    public name: String;
+    public name: string;
 
     @HasMany(() => Album)
     public albums: Album[]

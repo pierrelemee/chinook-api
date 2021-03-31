@@ -1,5 +1,4 @@
-/// <reference path="definitions.d.ts" />
-import { Album } from ".";
+import { Album } from "models";
 import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript'
 
 

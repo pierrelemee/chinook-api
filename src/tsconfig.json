@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "traceResolution": false,
+    "sourceMap": false,
+    "target": "es6",
+    "outDir": "../dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}

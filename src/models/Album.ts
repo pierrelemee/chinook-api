@@ -1,7 +1,5 @@
-/// <reference path="definitions.d.ts" />
-import { Artist, Track } from ".";
+import { Artist, Track } from "models";
 import {Table, Column, Model, ForeignKey, BelongsTo, HasMany} from 'sequelize-typescript'
-import {} from "./Track";
 
 
 @Table({tableName: 'Album', createdAt: false, deletedAt: false, updatedAt: false})
@@ -11,14 +9,14 @@ export class Album extends Model {
         primaryKey: true,
         field: 'AlbumId'
     })
-    public id: Number;
+    public id: number;
 
     @Column({field: 'Title'})
-    public name: String;
+    public name: string;
 
     @ForeignKey(() => Artist)
     @Column({field: 'ArtistId'})
-    public artistId: Number;
+    public artistId: number;
 
     @BelongsTo(() => Artist, 'ArtistId')
     public artist: Artist

@@ -24,12 +24,13 @@ module.exports = {
     ],
     resolve: {
         alias: {
-            "@models": path.resolve(__dirname, 'src/models')
+            "models": path.resolve(__dirname, 'src/models'),
+            "controllers": path.resolve(__dirname, 'src/controllers'),
         },
         extensions: ['.ts', '.tsx', '.js', '.json'],
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
     },
 };
