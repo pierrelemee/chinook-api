@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn install
 
+      - name: Install testyts
+        run: yarn global add testyts
+
       - name: Run unit tests 🧪
         run: testyts
         working-directory: ./test
