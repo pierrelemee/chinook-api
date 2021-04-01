@@ -1,4 +1,4 @@
-import { Album } from "models";
+import { Album } from "models/index";
 import { Table, Column, Model, ForeignKey, BelongsTo } from 'sequelize-typescript'
 
 

@@ -17,13 +17,7 @@ jobs:
           node-version: 15
 
       - name: Install dependencies 👨🏻‍💻
-        run: yarn install
-
-      - name: Install testyts
-        run: yarn global add testyts
+        run: yarn install --dev
 
       - name: Run unit tests 🧪
-        run: testyts
-        working-directory: ./test
-        env:
-          NODE_PATH: '../src'
+        run: yarn run testyts

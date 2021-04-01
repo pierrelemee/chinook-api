@@ -2,7 +2,7 @@
   "name": "chinook-pitou",
   "version": "1.0.0",
   "description": "Chinook DB API (to play with Express & Typescript)",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "repository": "git@github.com:Ignipro/chinook-pitou.git",
   "author": "Pierre Lemée <pierre@pierrelemee.fr>",
   "license": "MIT",

@@ -1,4 +1,4 @@
-import { Artist, Track } from "models";
+import { Artist, Track } from "models/index";
 import {Table, Column, Model, ForeignKey, BelongsTo, HasMany} from 'sequelize-typescript'
 
 
