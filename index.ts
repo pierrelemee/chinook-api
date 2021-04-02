@@ -1,22 +1,17 @@
 import 'module-alias/register';
+
+import './container'
+
 import express from 'express';
 import bodyParser from "body-parser";
 import { useExpressServer } from "routing-controllers";
-import { Album, Artist, Track } from "./models"
-import { ArtistController, AlbumController } from "./controllers"
-import { Sequelize } from 'sequelize-typescript'
+import {ArtistController, AlbumController} from "controllers";
 
 const app = express()
 // Allow to call this.json() from router callbacks
 app.use(bodyParser.json())
 
 const port = 5000
-
-const sequelize: Sequelize = new Sequelize({
-    storage: 'chinook.sqlite',
-    dialect: 'sqlite',
-    models: [ Artist, Album, Track ],
-});
 
 useExpressServer(app, {
     controllers: [ ArtistController, AlbumController ]
