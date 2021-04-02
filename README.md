@@ -1,5 +1,7 @@
 # chinook-pitou
 
+![unit test workflow status badge](https://github.com/pierrelemee/chinook-api/actions/workflows/test.yml/badge.svg)
+
 A backend project serving a web service API to access [Chinook database data](https://github.com/lerocha/chinook-database).
 
 ## Setup & run
@@ -80,15 +82,17 @@ export class UserController {
 
 ## Test
 
-I haven't implemented unit tests _so far_. 
+Unit tests are based on the [`testyts` framework](https://testy.github.io/), although not as popular as `jest` or `mocha`,
+but purely designed for Typescript.
 
-While waiting, you can still execute this:
+To run theses unit tests, execute: 
 
 ```bash
-curl -s  http://127.0.0.1:5000/api/artist/125
+yarn test
 ```
 
-If you [install `pjson`](https://pypi.org/project/pjson/) on your local machine, you can even _prettify_:
+If you [install `pjson`](https://pypi.org/project/pjson/) on your local machine, you can also test it from the command line,
+via `curl`, to retrieve _prettified_ JSON:
 
 ```bash
 curl -s  http://127.0.0.1:5000/api/artist/125 | pjson
