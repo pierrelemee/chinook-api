@@ -50,12 +50,12 @@ export class ArtistControllerTest {
     public async testGetArtist() : Promise<void> {
         await this.client.get('/api/artist/135').then(
             function (response) {
-                console.log(response.constructor.name)
-                console.log(response.status)
                 expect.toBeEqual(response.status, 200)
-
             }
         )
+            .catch(function (error) {
+                expect.toBeTruthy(error.response)
+            })
     }
 
     @AfterAll()
